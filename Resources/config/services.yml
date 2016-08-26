@@ -1,0 +1,67 @@
+parameters:
+    uneak.oauth.sonoov.credential.class: Uneak\HappyMarketingBundle\OAuth\Configuration\CredentialsConfiguration
+    uneak.oauth.sonoov.server.class: Uneak\HappyMarketingBundle\Services\HappyMarketingServerConfiguration
+    uneak.oauth.sonoov.service.class: Uneak\HappyMarketingBundle\Services\HappyMarketingService
+    uneak.oauth.sonoov.authentication.class: Uneak\HappyMarketingBundle\OAuth\Configuration\AuthenticationOAuth2Configuration
+
+    uneak.oauth.sonoov.api.class: Uneak\HappyMarketingBundle\Services\HappyMarketingAPI
+    uneak.oauth.sonoov.user.class: Uneak\HappyMarketingBundle\Services\HappyMarketingUser
+
+
+    sonoov.api.url: "http://socrm.noviris.com/app_dev.php/api/v1"
+
+    sonoov.auth.endpoint: "http://socrm.noviris.com/app_dev.php/oauth/v2/auth"
+    sonoov.token.endpoint: "http://socrm.noviris.com/app_dev.php/oauth/v2/token"
+
+
+# SUPA ADMINATOR
+#    sonoov.client.id: "3_uz4u31xoxxwo0oc0c4kckss8kkwk08c8c4044w08s48ksg4sw"
+#    sonoov.client.secret: "41xu30drgew4wgw4csgk0oocsscs4kck4gos0ogwcgs8wwo8ck"
+
+# COTRANS
+    sonoov.client.id: "4_53udttyef0088kcscss0ggkwckw48k8kc8gc84wkkkckw4gcgw"
+    sonoov.client.secret: "4vl0dzruw8ao0ow88kwk8o0so4wgoow08cooo48ckwowckscsw"
+
+    sonoov.auth.code.scope: ""
+
+
+
+services:
+
+    uneak.oauth.sonoov.authentication:
+        class: %uneak.oauth.sonoov.authentication.class%
+        arguments:
+            - { scope: %sonoov.auth.code.scope% }
+
+    uneak.oauth.sonoov.credential:
+        class: %uneak.oauth.sonoov.credential.class%
+        arguments:
+            - { clientId: %sonoov.client.id%, clientSecret: %sonoov.client.secret% }
+
+    uneak.oauth.sonoov.server:
+        class: %uneak.oauth.sonoov.server.class%
+        arguments:
+            - { authEndpoint: %sonoov.auth.endpoint%, tokenEndpoint: %sonoov.token.endpoint% }
+
+    uneak.oauth.sonoov.service:
+        class: %uneak.oauth.sonoov.service.class%
+        arguments:
+            - @uneak.oauth.sonoov.credential
+            - @uneak.oauth.sonoov.server
+            - @uneak.oauth.sonoov.authentication
+        tags:
+            - { name: uneak.oauth.service, alias: sonoov }
+
+    uneak.oauth.sonoov.api:
+        class: %uneak.oauth.sonoov.api.class%
+        arguments:
+            - %sonoov.api.url%
+        tags:
+            - { name: uneak.oauth.api, alias: sonoov }
+
+    uneak.oauth.sonoov.user:
+        class: %uneak.oauth.sonoov.user.class%
+        arguments:
+            - @uneak.oauth.sonoov.service
+        tags:
+            - { name: uneak.oauth.user, alias: sonoov }
