@@ -8,7 +8,7 @@ namespace Uneak\HappyMarketingBundle\Services;
 
     use Uneak\HappyMarketingBundle\OAuth\Configuration\AuthenticationOAuth2ConfigurationInterface;
     use Uneak\HappyMarketingBundle\OAuth\Configuration\CredentialsConfigurationInterface;
-    use Uneak\HappyMarketingBundle\OAuth\Curl\CurlResponse;
+    use Uneak\OAuthClientBundle\OAuth\Curl\CurlResponse;
     use Uneak\HappyMarketingBundle\OAuth\ServiceOAuth2;
     use Uneak\HappyMarketingBundle\OAuth\Token\TokenResponse;
 

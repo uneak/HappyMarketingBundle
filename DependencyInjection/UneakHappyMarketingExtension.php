@@ -22,6 +22,14 @@ class UneakHappyMarketingExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $container->setParameter('api_url', $config['api_url']);
+        $container->setParameter('auth_endpoint', $config['auth_endpoint']);
+        $container->setParameter('token_endpoint', $config['token_endpoint']);
+        $container->setParameter('auth_code_scope', $config['auth_code_scope']);
+        $container->setParameter('client_id', $config['client_id']);
+        $container->setParameter('client_secret', $config['client_secret']);
+
+            
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }

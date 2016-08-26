@@ -2,9 +2,9 @@
 
 	namespace Uneak\HappyMarketingBundle\Services;
 
-    use Uneak\HappyMarketingBundle\OAuth\Curl\CurlRequest;
-    use Uneak\HappyMarketingBundle\OAuth\Curl\CurlResponse;
-    use Uneak\HappyMarketingBundle\OAuth\ServiceAPI;
+    use Uneak\OAuthClientBundle\OAuth\Curl\CurlRequest;
+    use Uneak\OAuthClientBundle\OAuth\Curl\CurlResponse;
+    use Uneak\OAuthClientBundle\OAuth\ServiceAPI;
 
 
     class HappyMarketingAPI extends ServiceAPI {

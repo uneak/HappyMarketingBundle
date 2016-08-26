@@ -3,7 +3,7 @@
 	namespace Uneak\HappyMarketingBundle\Services;
 
 	use Symfony\Component\OptionsResolver\OptionsResolver;
-	use Uneak\HappyMarketingBundle\OAuth\Curl\CurlRequest;
+	use Uneak\OAuthClientBundle\OAuth\Curl\CurlRequest;
 	use Uneak\HappyMarketingBundle\OAuth\OAuth;
 	use Uneak\HappyMarketingBundle\OAuth\ServiceUser;
 	use Uneak\HappyMarketingBundle\OAuth\Token\AccessTokenInterface;
@@ -15,7 +15,7 @@
 		public function configureOptions(OptionsResolver $resolver) {
 			parent::configureOptions($resolver);
 			$resolver->setDefaults(array(
-				'service'         => 'sonoov',
+				'service'         => 'happymarketing',
 			));
 		}
 
@@ -23,7 +23,7 @@
 
 		public function setTokenData(TokenInterface $token) {
 			$options = array(
-				'url' => 'https://www.sonoovapis.com/oauth2/v1/userinfo',
+				'url' => 'https://www.happymarketingapis.com/oauth2/v1/userinfo',
 				'http_method' => CurlRequest::HTTP_METHOD_GET,
 			);
 

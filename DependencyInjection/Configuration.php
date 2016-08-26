@@ -18,12 +18,19 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('uneak_o_auth_sonoov_service');
+        $rootNode = $treeBuilder->root('uneak_happymarketing');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
-
+        $rootNode
+            ->children()
+                ->scalarNode('api_url')->end()
+                ->scalarNode('auth_endpoint')->end()
+                ->scalarNode('token_endpoint')->end()
+                ->scalarNode('auth_code_scope')->end()
+                ->scalarNode('client_id')->end()
+                ->scalarNode('client_secret')->end()
+            ->end()
+        ;
+        
         return $treeBuilder;
     }
 }
