@@ -4,10 +4,8 @@
 
 	use Symfony\Component\OptionsResolver\OptionsResolver;
 	use Uneak\OAuthClientBundle\OAuth\Curl\CurlRequest;
-	use Uneak\HappyMarketingBundle\OAuth\OAuth;
-	use Uneak\HappyMarketingBundle\OAuth\ServiceUser;
-	use Uneak\HappyMarketingBundle\OAuth\Token\AccessTokenInterface;
-	use Uneak\HappyMarketingBundle\OAuth\Token\TokenInterface;
+	use Uneak\OAuthClientBundle\OAuth\ServiceUser;
+	use Uneak\OAuthClientBundle\OAuth\Token\TokenInterface;
 
 	class HappyMarketingUser extends ServiceUser {
 

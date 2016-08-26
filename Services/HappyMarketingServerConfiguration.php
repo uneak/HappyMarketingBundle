@@ -3,8 +3,8 @@
     namespace Uneak\HappyMarketingBundle\Services;
 
 	use Symfony\Component\OptionsResolver\OptionsResolver;
-    use Uneak\HappyMarketingBundle\OAuth\Configuration\ServerConfiguration;
-    use Uneak\HappyMarketingBundle\OAuth\Configuration\ServerOAuth2Configuration;
+    use Uneak\OAuthClientBundle\OAuth\Configuration\ServerConfiguration;
+    use Uneak\OAuthClientBundle\OAuth\Configuration\ServerOAuth2Configuration;
 
     class HappyMarketingServerConfiguration extends ServerOAuth2Configuration {
 

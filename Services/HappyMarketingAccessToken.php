@@ -3,9 +3,8 @@
 	namespace Uneak\HappyMarketingBundle\Services;
 
 	use Symfony\Component\OptionsResolver\OptionsResolver;
-	use Uneak\HappyMarketingBundle\OAuth\Configuration;
-	use Uneak\OAuthClientBundle\OAuth\Curl\CurlRequest;
-	use Uneak\HappyMarketingBundle\OAuth\Token\AccessToken;
+	use Uneak\OAuthClientBundle\OAuth\Configuration;
+	use Uneak\OAuthClientBundle\OAuth\Token\AccessToken;
 
 	class HappyMarketingAccessToken extends AccessToken {
 

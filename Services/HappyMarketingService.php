@@ -2,15 +2,11 @@
 
 namespace Uneak\HappyMarketingBundle\Services;
 
-
-
-
-
-    use Uneak\HappyMarketingBundle\OAuth\Configuration\AuthenticationOAuth2ConfigurationInterface;
-    use Uneak\HappyMarketingBundle\OAuth\Configuration\CredentialsConfigurationInterface;
+    use Uneak\OAuthClientBundle\OAuth\Configuration\AuthenticationOAuth2ConfigurationInterface;
+    use Uneak\OAuthClientBundle\OAuth\Configuration\CredentialsConfigurationInterface;
     use Uneak\OAuthClientBundle\OAuth\Curl\CurlResponse;
-    use Uneak\HappyMarketingBundle\OAuth\ServiceOAuth2;
-    use Uneak\HappyMarketingBundle\OAuth\Token\TokenResponse;
+    use Uneak\OAuthClientBundle\OAuth\ServiceOAuth2;
+    use Uneak\OAuthClientBundle\OAuth\Token\TokenResponse;
 
     class HappyMarketingService extends ServiceOAuth2 {
 
