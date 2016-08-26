@@ -1,0 +1,30 @@
+{
+  "name": "uneak/happy-marketing-bundle",
+  "type": "symfony-bundle",
+  "description": "Symfony HappyMarketingBundle",
+  "keywords": ["oauth", "oauth2", "client", "user", "social", "api", "happy", "marketing", "happymarketing"],
+  "homepage": "https://github.com/uneak/HappyMarketingBundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Marc Galoyer",
+      "email": "mgaloyer@uneak.fr",
+      "homepage": "http://www.uneak.fr"
+    }
+  ],
+
+  "require": {
+    "php": ">=5.3.2",
+    "symfony/framework-bundle": "~2.1",
+    "twig/twig": "~1.5",
+    "uneak/oauth-client-bundle": "~0.0"
+  },
+  "require-dev": {
+    "symfony/yaml": "~2.1"
+  },
+  "autoload": {
+    "psr-0": { "Uneak\\HappyMarketingBundle": "" }
+  },
+  "target-dir": "Uneak/HappyMarketingBundle",
+  "minimum-stability": "dev"
+}

@@ -1,0 +1,13 @@
+composer.lock
+phpunit.xml
+Tests/autoload.php
+nbproject
+catalog.xml
+Propel/om/*
+Propel/map/*
+
+vendor/*
+
+
+.DS_Store
+.idea

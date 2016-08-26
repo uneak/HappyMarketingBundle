@@ -1,0 +1,55 @@
+parameters:
+    uneak.oauth.happymarketing.credential.class: Uneak\OAuthClientBundle\OAuth\Configuration\CredentialsConfiguration
+    uneak.oauth.happymarketing.server.class: Uneak\HappyMarketingBundle\Services\HappyMarketingServerConfiguration
+    uneak.oauth.happymarketing.service.class: Uneak\HappyMarketingBundle\Services\HappyMarketingService
+    uneak.oauth.happymarketing.authentication.class: Uneak\OAuthClientBundle\OAuth\Configuration\AuthenticationOAuth2Configuration
+
+    uneak.oauth.happymarketing.api.class: Uneak\HappyMarketingBundle\Services\HappyMarketingAPI
+    uneak.oauth.happymarketing.user.class: Uneak\HappyMarketingBundle\Services\HappyMarketingUser
+
+    happymarketing.api.url: %api_url%
+    happymarketing.auth.endpoint: %auth_endpoint%
+    happymarketing.token.endpoint: %token_endpoint%
+    happymarketing.auth.code.scope: %auth_code_scope%
+    happymarketing.client.id: %client_id%
+    happymarketing.client.secret: %client_secret%
+
+services:
+
+    uneak.oauth.happymarketing.authentication:
+        class: %uneak.oauth.happymarketing.authentication.class%
+        arguments:
+            - { scope: %happymarketing.auth.code.scope% }
+
+    uneak.oauth.happymarketing.credential:
+        class: %uneak.oauth.happymarketing.credential.class%
+        arguments:
+            - { clientId: %happymarketing.client.id%, clientSecret: %happymarketing.client.secret% }
+
+    uneak.oauth.happymarketing.server:
+        class: %uneak.oauth.happymarketing.server.class%
+        arguments:
+            - { authEndpoint: %happymarketing.auth.endpoint%, tokenEndpoint: %happymarketing.token.endpoint% }
+
+    uneak.oauth.happymarketing.service:
+        class: %uneak.oauth.happymarketing.service.class%
+        arguments:
+            - @uneak.oauth.happymarketing.credential
+            - @uneak.oauth.happymarketing.server
+            - @uneak.oauth.happymarketing.authentication
+        tags:
+            - { name: uneak.oauth.service, alias: happymarketing }
+
+    uneak.oauth.happymarketing.api:
+        class: %uneak.oauth.happymarketing.api.class%
+        arguments:
+            - %happymarketing.api.url%
+        tags:
+            - { name: uneak.oauth.api, alias: happymarketing }
+
+    uneak.oauth.happymarketing.user:
+        class: %uneak.oauth.happymarketing.user.class%
+        arguments:
+            - @uneak.oauth.happymarketing.service
+        tags:
+            - { name: uneak.oauth.user, alias: happymarketing }
