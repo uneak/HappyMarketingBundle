@@ -15,12 +15,9 @@
 
   "require": {
     "php": ">=5.3.2",
-    "symfony/framework-bundle": "~2.1",
-    "twig/twig": "~1.5",
     "uneak/oauth-client-bundle": "~0.0"
   },
   "require-dev": {
-    "symfony/yaml": "~2.1"
   },
   "autoload": {
     "psr-0": { "Uneak\\HappyMarketingBundle": "" }
